@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src = '../js/PDFGenerator.js'></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src = ../js/jquery-3.1.1.js></script>
+    <script src = '../js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <script type = 'text/javascript' src = '../js/PatientData.js'></script>
+
+    <script type = "text/javascript" src ="../js/SurveySubmit.js"></script>
+    <script type = 'text/javascript' src = '../js/SurveyData.js'></script>
+
+
+    <title>Title</title>
+</head>
+<body>
+
+<p id = 'instructions'>  </p>
+
+<div id = survey-area>
+
+</div>
+
+<template id = 'GenderTemplate'>
+    <div id = 'Gender'>
+        <p class = question-text> Gender</p>
+        <ul class = 'answers' style = 'list-style-type: none'>
+            <li>
+                <input type="radio" id = "male" name="gender" value="male" class = 'answer-text'><label for="male">Male</label>
+            </li>
+            <li>
+                <input type="radio" id = "female" name="gender" value="female" class = 'answer-text'><label for="female">Female</label>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<template id = 'PointsMCTemplate'>
+    <div class = 'PointsMC'>
+        <p class = 'question-text' ></p>
+        <ul class = 'answers' style = 'list-style-type: none'></ul>
+    </div>
+</template>
+
+<template id = 'NoPointsMCTemplate'>
+    <div class = 'NoPointsMC'>
+        <p class = 'question-text' ></p>
+        <ul class = 'answers' style = 'list-style-type: none'></ul>
+    </div>
+</template>
+
+<script>
+
+    window.onload = function() {
+
+            generateQuestionsAndAnswers(idToSurveyMap[localStorage.getItem('surveyId')]);
+            loadjsfile(idToJSMap[localStorage.getItem('surveyId')]);
+
+    };
+
+</script>
+
+
+
+
+
+<button type="button" class="btn btn-danger" onclick=  "history.go(-1)">Back</button>
+
+<button type="button" class="btn btn-success" onclick = "submit()"
+>Submit</button>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src = ../js/jquery-3.1.1.js></script>
+    <script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+function resetForNextUser() {
+    alert('Thank you!');
+    window.location.href = '../index.html';
+}
+
+function openSurvey(surveyId) {
+    localStorage.setItem('surveyId', surveyId);
+    window.location.href = './SurveyTemplate.html';
+}
+
+</script>
+
+
+<h1> Select a Survey</h1>
+
+<div class = 'container'>
+    <button onclick="openSurvey(window.event.target.id)" id = 'PHQ9' class = "btn btn-default survey-button col-sm-4"> Patient Health Questionnaire (PHQ-9) </button>
+
+    <button onclick="openSurvey(window.event.target.id)" id = 'AuditQuestionnaireAlcohol' class = "btn btn-default survey-button col-sm-4"> Audit Questionnaire: Screen for alcohol misuse</button>
+
+</div>
+
+<button type = 'button' class = "btn btn-success" onclick= "resetForNextUser()" > Finish </button>
+
+
+</body>
+</html>
